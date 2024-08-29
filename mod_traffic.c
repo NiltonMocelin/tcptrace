@@ -297,7 +297,7 @@ traffic_init_files(void)
     static int created = 0;
 
     if (created)
-	return;
+	return (1);
     created = 1;
 
     /* open the output files */
@@ -574,7 +574,7 @@ MakeConnRec(void)
     return(pci);
 }
 
-
+// aquii
 void
 traffic_read(
     struct ip *pip,		/* the packet */

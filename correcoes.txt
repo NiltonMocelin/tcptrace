@@ -1,0 +1,28 @@
+libpcap version: 2.70-1
+I had to make two modifications, it should keep the same behavior.
+
+-> pcap_dispatch() returns the number of packets processed on success;
+
+Arquivo: mod_traffic.c
+
+(1) return value is missing
+
+static int
+traffic_init_files(void)
+{
+    static int created = 0;
+
+    if (created)
+----->>	return (1);
+--------------------------------
+Arquivo: tcpdump.c
+
+(1) Outdated libpcap
+// comment lines:
+/* external ref, in case missing in older version */
+// extern int pcap_offline_read(void *, int, pcap_handler, u_char *);
+
+// replace lines:
+Before: // if ((ret = pcap_offline_read(pcap,1,(pcap_handler)callback,0)) != 1) {
+After: if ((ret = pcap_dispatch(pcap,1,(pcap_handler)callback,0)) != 1) {
+

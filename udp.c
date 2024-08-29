@@ -229,7 +229,7 @@ OnlyUDPConn(
      ignore_pairs[ix_only] = FALSE;  
 }
  
-
+// calculos, features, UDP
 udp_pair *
 udpdotrace(
     struct ip *pip,

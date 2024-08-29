@@ -962,7 +962,7 @@ rather than:\n\
     /* count the files */
     ++file_count;
 
-
+ //// AQUIIII
     /* read each packet */
     while (1) {
         /* read the next packet */
@@ -1115,7 +1115,8 @@ for other packet types, I just don't have a place to test them\n\n");
 		continue;
 	    }
 	}
-		       
+
+//aqui começa		       
 	/* find the start of the TCP header */
 	ret = gettcp (pip, &ptcp, &plast);
 
@@ -1124,10 +1125,12 @@ for other packet types, I just don't have a place to test them\n\n");
 	    udp_pair *pup;
 	    struct udphdr *pudp;
 
+
 	    /* look for a UDP header */
 	    ret = getudp(pip, &pudp, &plast);
 
 	    if (do_udp && (ret == 0)) {
+		// Analise UDP
 		pup = udpdotrace(pip,pudp,plast);
 
 		/* verify UDP checksums, if requested */
@@ -1165,7 +1168,9 @@ for other packet types, I just don't have a place to test them\n\n");
 		continue;
 	    }
 	}
-		       
+
+
+	// Analise TCP	       
         /* perform TCP packet analysis */
 	ptp = dotrace(pip,ptcp,plast);
 

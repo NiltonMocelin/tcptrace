@@ -1380,7 +1380,7 @@ RemoveTcpPair(
 }
 
 
-
+// Calculos, features, TCP
 tcp_pair *
 dotrace(
     struct ip *pip,
