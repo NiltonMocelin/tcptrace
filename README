@@ -42,6 +42,12 @@ attempt to modify the program to work on other platforms if we can get
 enough help from people with access to those platforms and the changes
 are not too "esthetically disagreeable".
 
+Para instalar:
+   ./configure
+
+   make
+   make install
+
 Running the program
 -------------------
 
